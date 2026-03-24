@@ -18,21 +18,23 @@
 
         <h1 class="text-green-500 font-bold text-3xl">Green Earth</h1>
 
-        <div class="grid grid-cols-4">
-            <div class="bg-slate-500 col-span-1 space-y-3">
-                    <button id="allTreesbtn" class="btn btn-soft btn-success w-full">All Trees</button>
+        <div class="grid grid-cols-4 gap-4">
+            <div class="bg-white card card-body shadow-xl col-span-1 space-y-3">
+                <button id="allTreesbtn" class="btn btn-soft btn-success w-full">All Trees</button>
 
-                    <!-- Categories Buttons Container -->
-                    <div id="categoriesContainer" class="space-y-3">
-                        <!-- Categories Buttons will show here Dinamically through API -->
-                    </div>
+                <!-- Categories Buttons Container -->
+                <div id="categoriesContainer" class="space-y-3">
+                    <!-- Categories Buttons will show here Dinamically through API -->
+                </div>
             </div>
-            
-            <div class="bg-slate-300 col-span-2">
+
+            <!-- Trees Container -->
+            <div class="bg-white card card-body shadow-xl col-span-2">
                 <h2 class="font-bold text-2xl">Trees</h2>
             </div>
-            
-            <div class="bg-slate-500 col-span-1">
+
+            <!-- Cart Container -->
+            <div class="bg-white card card-body shadow-xl col-span-1">
                 <Cart class="font-bold text-2xl">Cart</h2>
             </div>
         </div>
