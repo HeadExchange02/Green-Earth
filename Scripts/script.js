@@ -29,19 +29,22 @@ function displayTrees(trees) {
     trees.forEach(tree => {
         console.log(tree);
         const card = document.createElement("div")
-        card.className = "card bg-white shadow-sm";
+        card.className = "card bg-white shadow-xl";
         card.innerHTML = `
                         <figure>
-                            <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" />
+                            <img src="${tree.image}"
+                            alt="${tree.name}"
+                            title="${tree.name}"
+                            class="h-48 w-full object-cover"
+                            />
                         </figure>
                         <div class="card-body">
-                            <h2 class="card-title">Card Title</h2>
-                            <p class="line-clamp-2">A card component has a figure, a body part, and inside body there are title and actions parts</p>
-                            <div class="badge badge-soft badge-success">Success</div>
+                            <h2 class="card-title">${tree.name}</h2>
+                            <p class="line-clamp-2">${tree.description}</p>
+                            <div class="badge badge-soft badge-success">${tree.category}</div>
                             <div class="justify-between items-center flex">
-                                <h2 class="font-bold text-xl text-green-500">$500</h2>
-                                <button class="btn btn-soft btn-success">Buy Now</button>
+                                <h2 class="font-bold text-xl text-green-500">$${tree.price}</h2>
+                                <button class="btn btn-soft btn-success">+Cart</button>
                             </div>
                         </div>
         `
