@@ -3,6 +3,14 @@ const treesContainer = document.getElementById("treesContainer");
 const loadingSpinner = document.getElementById("loadingSpinner");
 
 
+function showLoading() {
+    loadingSpinner.classList.remove("hidden");
+}
+
+function hideLoading() {
+    loadingSpinner.classList.add("hidden");
+}
+
 async function loadCategories() {
     // async await
     const res = await fetch("https://openapi.programming-hero.com/api/categories");
@@ -14,15 +22,28 @@ async function loadCategories() {
         const btn = document.createElement("button");
         btn.className = "btn btn-soft btn-success w-full"
         btn.textContent = category.category_name;
+        btn.onclick = () => selectCategory(category.id, btn);
         categoriesContainer.appendChild(btn);
     });
 }
 
+async function selectCategory(categoryId, btn) {
+    console.log(categoryId, btn);
+    const allButtons = document.querySelectorAll("#categoriesContainer button, allTreesbtn");
+    console.log(allButtons);
+    
+    allButtons.forEach(btn => {
+        btn.classList.add("btn-soft")
+    })
+    btn.classList.remove("btn-soft");
+    btn.classList.add("btn-success");
+}
+
 async function loadTrees() {
-    loadingSpinner.classList.remove("hidden");
+    showLoading()
     const res = await fetch("https://openapi.programming-hero.com/api/plants");
     const data = await res.json();
-    loadingSpinner.classList.add("hidden");
+    hideLoading()
     displayTrees(data.plants);
 }
 
