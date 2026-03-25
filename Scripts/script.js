@@ -1,6 +1,7 @@
 const categoriesContainer = document.getElementById("categoriesContainer");
-const treesContainer = document.getElementById("treesContainer")
-console.log(treesContainer);
+const treesContainer = document.getElementById("treesContainer");
+const loadingSpinner = document.getElementById("loadingSpinner");
+
 
 async function loadCategories() {
     // async await
@@ -18,16 +19,17 @@ async function loadCategories() {
 }
 
 async function loadTrees() {
+    loadingSpinner.classList.remove("hidden");
     const res = await fetch("https://openapi.programming-hero.com/api/plants");
     const data = await res.json();
-    // console.log(data)
+    loadingSpinner.classList.add("hidden");
     displayTrees(data.plants);
 }
 
 function displayTrees(trees) {
     console.log(trees);
     trees.forEach(tree => {
-        console.log(tree);
+        // console.log(tree);
         const card = document.createElement("div")
         card.className = "card bg-white shadow-xl";
         card.innerHTML = `
